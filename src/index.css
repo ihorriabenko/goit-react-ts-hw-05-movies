@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+#main {
+  padding: 15px;
+}
+
+/* nav */
+
+#nav {
+  padding: 15px;
+  background: #E8E8ED;
+}
+
+#nav > ul {
+  display: flex;
+}
+
+#nav > ul > li {
+  margin-right: 15px;
+}
+
+#nav a.active {
+  color: #06c;
+}
+
+/* movieDetails */
+
+.goBack {
+  display: block;
+  margin: 0 0 15px;
+
+  max-width: 100px;
+
+  border: 1px solid grey;
+  text-align: center;
+  background-color: #E8E8ED;
+  border-radius: 3px;
+}
+
+.cr {
+  display: flex;
+
+  margin-bottom: 25px;
+}
+
+.cr > li > a {
+  margin-right: 15px;
+  color: #06c;
+}
+
+.cr > li > a:hover {
+  color: #000;
+}
