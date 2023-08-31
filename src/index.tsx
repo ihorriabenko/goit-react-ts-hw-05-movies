@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom';
 
 import {
   homeLoader,
@@ -20,7 +20,7 @@ const MovieDetails = lazy(() => import('./routes/MovieDetails'));
 const Cast = lazy(() => import('./routes/Cast'));
 const Reviews = lazy(() => import('./routes/Reviews'));
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Root />,
