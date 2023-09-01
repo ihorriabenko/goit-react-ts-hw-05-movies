@@ -1,7 +1,9 @@
 import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom';
 import { getMovieDetails } from '../api/getMovies';
 import { MovDetails } from '../types/types';
-import { useEffect, useState } from 'react';
+
+const defImg =
+  'https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg';
 
 export async function movieDetailsLoader({ params }: any) {
   const movieDetails = await getMovieDetails(params.movieId);
@@ -15,24 +17,24 @@ export default function MovieDetails() {
   const location = useLocation();
 
   const genreList = genres.map((el) => el.name);
+  const date = release_date.slice(0, 4);
 
-  const [x, setX] = useState('');
+  const backLinkHref = location.state.from ?? '/';
 
-  useEffect(() => {
-    setX(location.state.from);
-  }, []);
-
-  const backLinkHref = location.state?.from ?? x;
-  const date = release_date.slice(0,4);
-  
   return (
     <>
       <section>
-          <Link className='goBack' to={backLinkHref}>Go back</Link>
-          <img
-            src={`https://image.tmdb.org/t/p/w300${poster_path}`}
-            alt='movie poster'
-          />
+        <Link className='goBack' to={backLinkHref}>
+          Go back
+        </Link>
+        <img
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w300${poster_path}`
+              : defImg
+          }
+          alt='movie poster'
+        />
         <ul>
           <li>
             <p>

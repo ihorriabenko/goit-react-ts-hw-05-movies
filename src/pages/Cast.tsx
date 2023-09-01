@@ -2,6 +2,9 @@ import { useLoaderData } from 'react-router-dom';
 import { getMovieCast } from '../api/getMovies';
 import { CastType } from '../types/types';
 
+const defImg =
+  'https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg';
+
 export async function castLoader({ params }: any) {
   const cast = await getMovieCast(params.movieId);
 
@@ -14,7 +17,11 @@ export default function Cast() {
   const elements = cast.map((el) => (
     <li key={el.id}>
       <img
-        src={`https://image.tmdb.org/t/p/w200${el.profile_path}`}
+        src={
+          el.profile_path
+            ? `https://image.tmdb.org/t/p/w200${el.profile_path}`
+            : defImg
+        }
         alt='actor'
       />
       <ul>

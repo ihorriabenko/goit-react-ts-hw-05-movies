@@ -1,24 +1,26 @@
 import React, { lazy } from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom';
+import {
+  createHashRouter,
+  RouterProvider,
+} from 'react-router-dom';
 
 import {
   homeLoader,
   castLoader,
   movieDetailsLoader,
   reviewsLoader,
-  moviesLoader,
-} from './routes';
+} from './pages';
 
 import './index.css';
 
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
-const Root = lazy(() => import('./routes/Root'));
-const Home = lazy(() => import('./routes/Home'));
-const Movies = lazy(() => import('./routes/Movies'));
-const MovieDetails = lazy(() => import('./routes/MovieDetails'));
-const Cast = lazy(() => import('./routes/Cast'));
-const Reviews = lazy(() => import('./routes/Reviews'));
+const Root = lazy(() => import('./pages/Root'));
+const Home = lazy(() => import('./pages/Home'));
+const Movies = lazy(() => import('./pages/Movies'));
+const MovieDetails = lazy(() => import('./pages/MovieDetails'));
+const Cast = lazy(() => import('./pages/Cast'));
+const Reviews = lazy(() => import('./pages/Reviews'));
 
 const router = createHashRouter([
   {
@@ -34,7 +36,6 @@ const router = createHashRouter([
       {
         path: 'movies',
         element: <Movies />,
-        loader: moviesLoader,
       },
       {
         path: 'movies/:movieId',
